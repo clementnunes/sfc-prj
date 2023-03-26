@@ -7,26 +7,27 @@ networks:
 
 services:
   main-app:
-    image: veekz/sfc-prj-main-app:latest
+    image: veekz/sfc-prj-main-app-preproduction:latest
     container_name: sfc-prj-main-app
     ports:
       - "5000:5000"
     networks:
       - dbnet
   ms1:
-    image: veekz/sfc-prj-ms1:latest
+    image: veekz/sfc-prj-ms1-preproduction:latest
     container_name: sfc-prj-ms1
     ports:
-      - "5001:5000"
+      - "5001:5001"
     networks:
       - dbnet
   ms2:
-    image: veekz/sfc-prj-ms2:latest
+    image: veekz/sfc-prj-ms2-preproduction:latest
     container_name: sfc-prj-ms2
     ports:
-      - "5002:5000"
+      - "5002:5002"
     networks:
       - dbnet
+
   postgres:
     image: postgres
     environment:
