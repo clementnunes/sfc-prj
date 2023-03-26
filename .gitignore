@@ -1,4 +1,4 @@
 /grafana-data
 /prometheus-data
 /.idea
-docker
+/docker
