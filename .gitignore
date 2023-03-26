@@ -1,3 +1,4 @@
-dist
-node_modules
-
+/grafana-data
+/prometheus-data
+/.idea
+docker

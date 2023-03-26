@@ -1,0 +1,39 @@
+version: '3.7'
+volumes:
+  prometheus-data: { }
+  grafana-data: { }
+
+networks:
+  dbnet:
+    external: true
+    name: dbnet
+
+services:
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus-data:/prometheus
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./config/alert_rules.yml:/etc/prometheus/alert_rules.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    networks:
+      - dbnet
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: "gadmin"
+      GF_SECURITY_ADMIN_PASSWORD: "root"
+    volumes:
+      - ./config/grafana_datasources.yml:/etc/grafana/provisioning/datasources/all.yml
+      - ./config/grafana_config.ini:/etc/grafana/config.ini
+      - ./grafana-data:/var/lib/grafana
+    networks:
+      - dbnet
