@@ -17,7 +17,7 @@ services:
       DB_HOST: host.docker.internal
       FASTIFY_ADDR: "0.0.0.0"
       FASTIFY_PORT: 3000
-      APP_KAFKA_BOOTSTRAP_SERVER: 127.0.0.1:9092
+      APP_KAFKA_BOOTSTRAP_SERVER: host.docker.internal:9092
       APP_KAFKA_TOPIC: topic-main-app
       KAFKA_APP_NAME: sfc-prj-main-app
       KAFKA_GROUP_NAME: sfc-prj
@@ -36,7 +36,7 @@ services:
       DB_SYNCHRONIZE: false
       FASTIFY_ADDR: "0.0.0.0"
       FASTIFY_PORT: 3000
-      APP_KAFKA_BOOSTRAP_SERVER: 127.0.0.1:9092
+      APP_KAFKA_BOOTSTRAP_SERVER: host.docker.internal:9092
       APP_KAFKA_TOPIC: topic-main-app
       KAFKA_APP_NAME: sfc-prj-ms1
       KAFKA_GROUP_NAME: sfc-prj
@@ -55,7 +55,7 @@ services:
       DB_SYNCHRONIZE: false
       FASTIFY_ADDR: "0.0.0.0"
       FASTIFY_PORT: 3000
-      APP_KAFKA_BOOSTRAP_SERVER: 127.0.0.1:9092
+      APP_KAFKA_BOOTSTRAP_SERVER: host.docker.internal:9092
       APP_KAFKA_TOPIC: topic-main-app
       KAFKA_APP_NAME: sfc-prj-ms2
       KAFKA_GROUP_NAME: sfc-prj
@@ -88,6 +88,8 @@ services:
     image: wurstmeister/zookeeper:latest
     ports:
       - "2181:2181"
+    environment:
+      ZOOKEEPER_SASL_ENABLED: FALSE
   kafka:
     image: wurstmeister/kafka:latest
     ports:
@@ -95,8 +97,9 @@ services:
     links:
       - zookeeper
     environment:
-      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
-      KAFKA_ZOOKEEPER_CONNECT: 127.0.0.1:2181
+      KAFKA_ADVERTISED_HOST_NAME: "kafka"
+      KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
   kafka-ui:
     image: provectuslabs/kafka-ui
     container_name: kafka-ui
@@ -104,5 +107,5 @@ services:
       - "8080:8080"
     restart: always
     environment:
-      KAFKA_CLUSTERS_0_NAME: 127.0.0.1
-      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: 127.0.0.1:9092
+      KAFKA_CLUSTERS_0_NAME: "kafka"
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: "kafka:9092"
