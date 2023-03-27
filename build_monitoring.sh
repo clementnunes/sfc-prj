@@ -1,4 +1,4 @@
-docker network create "dbnet"
+#docker network create "dbnet"
 
 # Run
 

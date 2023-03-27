@@ -10,12 +10,14 @@ services:
     image: veekz/sfc-prj-main-app-preproduction:latest
     container_name: sfc-prj-main-app
     ports:
-      - "5000:5000"
+      - "5000:3000"
+    depends_on:
+      - postgres
     environment:
       DB_HOST: host.docker.internal
       FASTIFY_ADDR: "0.0.0.0"
       FASTIFY_PORT: 3000
-      APP_KAFKA_BOOSTRAP_SERVER: kafka:9092
+      APP_KAFKA_BOOTSTRAP_SERVER: kafka:9092
       APP_KAFKA_TOPIC: topic-main-app
       KAFKA_APP_NAME: sfc-kafka-main-app
       KAFKA_GROUP_NAME: sfc-prj
@@ -25,7 +27,9 @@ services:
     image: veekz/sfc-prj-ms1-preproduction:latest
     container_name: sfc-prj-ms1
     ports:
-      - "5001:5001"
+      - "5001:3000"
+    depends_on:
+      - postgres
     environment:
       DB_HOST: host.docker.internal
       DB_SYNCHRONIZE: false
@@ -41,7 +45,9 @@ services:
     image: veekz/sfc-prj-ms2-preproduction:latest
     container_name: sfc-prj-ms2
     ports:
-      - "5002:5002"
+      - "5002:3000"
+    depends_on:
+      - postgres
     environment:
       DB_HOST: host.docker.internal
       DB_SYNCHRONIZE: false
@@ -88,3 +94,12 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: kafka
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+  kafka-ui:
+    image: provectuslabs/kafka-ui
+    container_name: kafka-ui
+    ports:
+      - "8080:8080"
+    restart: always
+    environment:
+      - KAFKA_CLUSTERS_0_NAME=local
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9092
