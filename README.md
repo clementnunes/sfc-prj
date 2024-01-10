@@ -2,10 +2,10 @@
 
 ## Overview
 
-SFC-PRJ is a project composed of a [main web app](https://github.com/clementnunes/sfc-prj-main-app), two microservices with CI/CD methods.
-[First microservice app repository](https://github.com/clementnunes/sfc-prj-ms1)
-[Second microservice app repository](https://github.com/clementnunes/sfc-prj-ms2)
-More details of each app on respective repository.
+SFC-PRJ is a project composed of a [main web app](https://github.com/clementnunes/sfc-prj-main-app), two microservices with CI/CD methods.\
+[First microservice app repository](https://github.com/clementnunes/sfc-prj-ms1)\
+[Second microservice app repository](https://github.com/clementnunes/sfc-prj-ms2)\
+More details of each app on respective repository.\
 
 ## Table of Contents
 
@@ -44,14 +44,17 @@ scripts/build_monitoring.sh
 ```
 
 ## Features
-[List the key features of your project. You can use bullet points for easy readability.]
+- Setup instant-ready a main web application and two microservices
+- Generate Docker Images
+- CI/CD (Github Actions to develop workflows)
+- Deliver
 
 ## Contributing
 
-Fork the repository.
-Create a new branch: git checkout -b feature-name
-Make your changes and commit them: git commit -m 'Add some feature'
-Push to the branch: git push origin feature-name
+Fork the repository.\
+Create a new branch: git checkout -b feature-name\
+Make your changes and commit them: git commit -m 'Add some feature'\
+Push to the branch: git push origin feature-name\
 Submit a pull request.
 
 ## Contact
