@@ -3,7 +3,7 @@
 ## Overview
 
 SFC-PRJ is a project for **Software for the Cloud** module (M2 Software Engineering) to deploy an infrastructure following **Microservices Architecture**.
-It is composed of the [main microservice web app](https://github.com/clementnunes/sfc-prj-main-app.) \
+It is composed of the [main microservice web app](https://github.com/clementnunes/sfc-prj-main-app) \
 [Second microservice app repository](https://github.com/clementnunes/sfc-prj-ms1) \
 [Third microservice app repository](https://github.com/clementnunes/sfc-prj-ms2) \
 More details of each app on respective repository.
