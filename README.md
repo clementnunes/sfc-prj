@@ -19,8 +19,6 @@ It uses:
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
@@ -55,14 +53,6 @@ scripts/build.sh
 - Generate Docker Images
 - CI/CD (Github Actions to develop workflows)
 - Deliver
-
-## Contributing
-
-- Fork the repository.
-- Create a new branch: git checkout -b feature-name
-- Make your changes and commit them: git commit -m 'Add some feature'
-- Push to the branch: git push origin feature-name
-- Submit a pull request.
 
 ## Contact
 
