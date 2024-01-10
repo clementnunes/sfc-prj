@@ -1,15 +1,11 @@
-# Run manually
-
-docker network create "dbnet"
-docker-compose -f docker-compose.yml -p "sfc-prj-app" up
-
-# Or run scripts/build_monitoring.sh
-
 # SFC-PRJ
 
 ## Overview
 
-SFC-PRJ is a [brief description of your project]. You can use this repository for [state the main purpose or use case of your project].
+SFC-PRJ is a project composed of a [main web app](https://github.com/clementnunes/sfc-prj-main-app), two microservices with CI/CD methods.
+[First microservice app repository](https://github.com/clementnunes/sfc-prj-ms1)
+[Second microservice app repository](https://github.com/clementnunes/sfc-prj-ms2)
+More details of each app on respective repository.
 
 ## Table of Contents
 
@@ -21,19 +17,36 @@ SFC-PRJ is a [brief description of your project]. You can use this repository fo
 
 ## Installation
 
-[Explain how to install your project, including any dependencies or requirements. Provide step-by-step instructions if necessary.]
-y]
+Clone the Repository:
+Open a terminal or command prompt and use the git clone command to clone the repository.
+
+```
+git clone https://github.com/username/repository.git
+```
+
+Navigate to the Project Directory:
+Change your current directory to the one where the project has been cloned.
+
+```
+cd repository
+```
 
 Usage
-[Provide instructions on how to use your project. Include any configuration settings or environment variables that users need to be aware of.]
 # Run the project
-[Include the command or commands to run your project]
+Run manually
+```
+docker network create "dbnet"
+docker-compose -f docker-compose.yml -p "sfc-prj-app" up
+```
+Or run 
+```
+scripts/build_monitoring.sh
+```
 
 ## Features
 [List the key features of your project. You can use bullet points for easy readability.]
 
 ## Contributing
-[Explain how others can contribute to your project. Include guidelines for pull requests, bug reports, and feature requests.]
 
 Fork the repository.
 Create a new branch: git checkout -b feature-name
@@ -41,9 +54,7 @@ Make your changes and commit them: git commit -m 'Add some feature'
 Push to the branch: git push origin feature-name
 Submit a pull request.
 
-## License
-[Specify the license under which your project is distributed. For example, you can use MIT, Apache, or any other license that suits your project.]
-[License text and details]
-
 ## Contact
-[Provide your contact information or a way for users to reach out for support or questions.]
+
+Clement Nunes
+clement.nunes@efrei.net
